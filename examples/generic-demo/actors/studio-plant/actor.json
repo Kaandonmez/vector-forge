@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "studio-plant",
+  "name": "Studio plant",
+  "category": "Nature",
+  "tags": [
+    "Nature",
+    "editorial",
+    "demo"
+  ],
+  "style": "editorial-green",
+  "width": 320,
+  "height": 320,
+  "viewBox": [
+    0,
+    0,
+    320,
+    320
+  ],
+  "clips": [
+    "gentle-sway"
+  ]
+}

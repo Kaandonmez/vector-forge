@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "chip-idle",
+  "name": "chip idle",
+  "actorId": "signal-chip",
+  "duration": 3,
+  "loop": true,
+  "tracks": {
+    "body.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.5,
+        "value": -2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

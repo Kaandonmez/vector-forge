@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "id": "gentle-sway",
+  "name": "gentle sway",
+  "actorId": "studio-plant",
+  "duration": 4.8,
+  "loop": true,
+  "tracks": {
+    "stem.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 2.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.6,
+        "value": -2.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 4.8,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "leafLeft.rotation": [
+      {
+        "time": 0,
+        "value": -1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.6,
+        "value": -4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 4.8,
+        "value": -1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "leafRight.rotation": [
+      {
+        "time": 0,
+        "value": 2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": -3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": -5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.6,
+        "value": 4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 4.8,
+        "value": 2,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "leafTop.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": -2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.6,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 4.8,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "id": "boost",
+  "name": "boost",
+  "actorId": "energy-core",
+  "duration": 2,
+  "loop": true,
+  "tracks": {
+    "body.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy1.opacity": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6667,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.3333,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy1.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -6,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy1.scale.x": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1.15,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy1.scale.y": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1.15,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy1.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -10,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy2.opacity": [
+      {
+        "time": 0,
+        "value": 0.4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6667,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.3333,
+        "value": 0.2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0.4,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy2.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 8,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy2.scale.x": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1.15,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy2.scale.y": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1.15,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy2.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -12,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy3.opacity": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6667,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.3333,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy3.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -6,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy3.scale.x": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1.15,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy3.scale.y": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1.15,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "energy3.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -14,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

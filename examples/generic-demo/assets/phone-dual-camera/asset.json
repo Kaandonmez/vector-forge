@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "phone-dual-camera",
+  "name": "Phone · dual camera",
+  "category": "Devices",
+  "tags": [
+    "Devices",
+    "editorial",
+    "demo"
+  ],
+  "style": "editorial-green",
+  "family": "phone-modern",
+  "baseAsset": "phone-single-camera",
+  "variant": "2-camera",
+  "width": 320,
+  "height": 320,
+  "viewBox": [
+    0,
+    0,
+    320,
+    320
+  ],
+  "generationNotes": "Shared rounded shell, three-quarter transform and camera lens motif."
+}

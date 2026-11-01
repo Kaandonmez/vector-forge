@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "mono-ink",
+  "name": "Ink & paper",
+  "description": "A graphic, high-contrast alternative with precise outlines.",
+  "palette": [
+    "#182a25",
+    "#f4f1e5",
+    "#ffffff"
+  ],
+  "stroke": {
+    "enabled": true,
+    "width": 2,
+    "maxWidth": 4
+  },
+  "geometry": {
+    "shapeLanguage": "outlined-geometric",
+    "detailLevel": "minimal"
+  },
+  "perspective": {
+    "default": "three-quarter"
+  },
+  "motion": {
+    "defaultEasing": "easeInOutQuad",
+    "personality": "precise"
+  },
+  "guidance": "Use only ink, cream and white. Outline the main silhouette; keep internal detail spare.",
+  "references": [
+    "phone-ink"
+  ]
+}

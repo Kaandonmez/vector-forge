@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "actorId": "signal-chip",
+  "nodes": {
+    "body": {
+      "svgId": "body",
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "indicator1": {
+      "svgId": "indicator-1",
+      "parent": "body",
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "indicator2": {
+      "svgId": "indicator-2",
+      "parent": "body",
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    },
+    "indicator3": {
+      "svgId": "indicator-3",
+      "parent": "body",
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

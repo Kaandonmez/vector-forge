@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "scene-point",
+  "name": "scene point",
+  "actorId": "demo-scene",
+  "duration": 1.8,
+  "loop": false,
+  "tracks": {
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": 0
+      },
+      {
+        "time": 0.2,
+        "value": -7,
+        "easing": "easeInQuad"
+      },
+      {
+        "time": 0.8,
+        "value": -94,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 1.8,
+        "value": -82,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.9,
+        "value": -4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": -2,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "handRight.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.9,
+        "value": -9,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": -6,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "id": "maker-states",
+  "actorId": "studio-maker",
+  "initial": "idle",
+  "states": {
+    "idle": {
+      "clip": "idle",
+      "transitions": [
+        {
+          "event": "walk",
+          "to": "walking"
+        },
+        {
+          "event": "celebrate",
+          "to": "happy"
+        },
+        {
+          "condition": "busy",
+          "to": "working"
+        }
+      ]
+    },
+    "walking": {
+      "clip": "walk",
+      "transitions": [
+        {
+          "event": "stop",
+          "to": "idle"
+        }
+      ]
+    },
+    "working": {
+      "clip": "typing",
+      "transitions": [
+        {
+          "event": "stop",
+          "to": "idle"
+        }
+      ]
+    },
+    "happy": {
+      "clip": "celebrate",
+      "transitions": [
+        {
+          "onComplete": true,
+          "to": "idle"
+        }
+      ]
+    }
+  }
+}

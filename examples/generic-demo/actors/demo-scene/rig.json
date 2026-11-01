@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "actorId": "demo-scene",
+  "nodes": {
+    "human": {
+      "svgId": "human",
+      "pivot": [
+        160,
+        268
+      ],
+      "pivotSpace": "absolute"
+    },
+    "body": {
+      "svgId": "body",
+      "parent": "human",
+      "pivot": [
+        0.5,
+        1
+      ]
+    },
+    "head": {
+      "svgId": "head",
+      "parent": "human",
+      "pivot": [
+        160,
+        120
+      ],
+      "pivotSpace": "absolute"
+    },
+    "hair": {
+      "svgId": "hair",
+      "parent": "head",
+      "pivot": [
+        0.5,
+        0.8
+      ]
+    },
+    "armLeft": {
+      "svgId": "arm-left",
+      "parent": "human",
+      "pivot": [
+        132,
+        130
+      ],
+      "pivotSpace": "absolute"
+    },
+    "armRight": {
+      "svgId": "arm-right",
+      "parent": "human",
+      "pivot": [
+        184,
+        130
+      ],
+      "pivotSpace": "absolute"
+    },
+    "handLeft": {
+      "svgId": "hand-left",
+      "parent": "armLeft",
+      "pivot": [
+        0.5,
+        0
+      ]
+    },
+    "handRight": {
+      "svgId": "hand-right",
+      "parent": "armRight",
+      "pivot": [
+        0.5,
+        0
+      ]
+    },
+    "legLeft": {
+      "svgId": "leg-left",
+      "parent": "human",
+      "pivot": [
+        149,
+        202
+      ],
+      "pivotSpace": "absolute"
+    },
+    "legRight": {
+      "svgId": "leg-right",
+      "parent": "human",
+      "pivot": [
+        176,
+        202
+      ],
+      "pivotSpace": "absolute"
+    },
+    "desk": {
+      "svgId": "desk",
+      "pivot": [
+        0.5,
+        1
+      ]
+    },
+    "board": {
+      "svgId": "board",
+      "pivot": [
+        0.5,
+        1
+      ]
+    },
+    "drawing": {
+      "svgId": "drawing",
+      "parent": "board",
+      "pivot": [
+        0.5,
+        0.5
+      ]
+    }
+  }
+}

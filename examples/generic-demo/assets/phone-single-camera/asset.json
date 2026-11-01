@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "phone-single-camera",
+  "name": "Phone · single camera",
+  "category": "Devices",
+  "tags": [
+    "Devices",
+    "editorial",
+    "demo"
+  ],
+  "style": "editorial-green",
+  "family": "phone-modern",
+  "variant": "1-camera",
+  "width": 320,
+  "height": 320,
+  "viewBox": [
+    0,
+    0,
+    320,
+    320
+  ],
+  "generationNotes": "Shared rounded shell, three-quarter transform and camera lens motif."
+}

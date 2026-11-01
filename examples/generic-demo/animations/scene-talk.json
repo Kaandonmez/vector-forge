@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "id": "scene-talk",
+  "name": "scene talk",
+  "actorId": "demo-scene",
+  "duration": 2.4,
+  "loop": true,
+  "tracks": {
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": -2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": 14,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 40,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 23,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 32,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 14,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "handRight.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.8,
+        "value": -10,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.6,
+        "value": 5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

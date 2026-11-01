@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "id": "typing",
+  "name": "typing",
+  "actorId": "studio-maker",
+  "duration": 1.4,
+  "loop": true,
+  "tracks": {
+    "armLeft.rotation": [
+      {
+        "time": 0,
+        "value": -46,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.35,
+        "value": -50,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.7,
+        "value": -46,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.05,
+        "value": -49,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.4,
+        "value": -46,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": 48,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.35,
+        "value": 44,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.7,
+        "value": 48,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.05,
+        "value": 46,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.4,
+        "value": 48,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "handLeft.rotation": [
+      {
+        "time": 0,
+        "value": -5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.7,
+        "value": 8,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.4,
+        "value": -5,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "handRight.rotation": [
+      {
+        "time": 0,
+        "value": 8,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.7,
+        "value": -5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.4,
+        "value": 8,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": 4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.7,
+        "value": 6,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.4,
+        "value": 4,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "actorId": "studio-plant",
+  "nodes": {
+    "pot": {
+      "svgId": "pot",
+      "pivot": [
+        0.5,
+        1
+      ]
+    },
+    "stem": {
+      "svgId": "stem",
+      "parent": "pot",
+      "pivot": [
+        161,
+        220
+      ],
+      "pivotSpace": "absolute"
+    },
+    "leafLeft": {
+      "svgId": "leaf-left",
+      "parent": "stem",
+      "pivot": [
+        112,
+        132
+      ],
+      "pivotSpace": "absolute"
+    },
+    "leafRight": {
+      "svgId": "leaf-right",
+      "parent": "stem",
+      "pivot": [
+        210,
+        128
+      ],
+      "pivotSpace": "absolute"
+    },
+    "leafTop": {
+      "svgId": "leaf-top",
+      "parent": "stem",
+      "pivot": [
+        167,
+        110
+      ],
+      "pivotSpace": "absolute"
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "id": "idea-to-board",
+  "name": "An idea takes shape",
+  "actorId": "demo-scene",
+  "loop": true,
+  "steps": [
+    {
+      "action": "play",
+      "clip": "scene-idle",
+      "duration": 1
+    },
+    {
+      "action": "parallel",
+      "steps": [
+        {
+          "action": "moveTo",
+          "target": "human",
+          "x": 118,
+          "y": 0,
+          "duration": 1.8
+        },
+        {
+          "action": "play",
+          "clip": "scene-walk",
+          "duration": 1.8
+        }
+      ]
+    },
+    {
+      "action": "rotateTo",
+      "target": "human",
+      "rotation": -3,
+      "duration": 0.35
+    },
+    {
+      "action": "parallel",
+      "steps": [
+        {
+          "action": "play",
+          "clip": "scene-point"
+        },
+        {
+          "action": "play",
+          "clip": "scene-draw"
+        }
+      ]
+    },
+    {
+      "action": "wait",
+      "duration": 0.5
+    },
+    {
+      "action": "repeat",
+      "count": 2,
+      "steps": [
+        {
+          "action": "play",
+          "clip": "scene-talk"
+        }
+      ]
+    },
+    {
+      "action": "parallel",
+      "steps": [
+        {
+          "action": "moveTo",
+          "target": "human",
+          "x": 0,
+          "y": 0,
+          "duration": 1.8
+        },
+        {
+          "action": "play",
+          "clip": "scene-walk",
+          "duration": 1.8
+        }
+      ]
+    },
+    {
+      "action": "rotateTo",
+      "target": "human",
+      "rotation": 0,
+      "duration": 0.35
+    },
+    {
+      "action": "play",
+      "clip": "scene-idle",
+      "duration": 1.5
+    }
+  ]
+}

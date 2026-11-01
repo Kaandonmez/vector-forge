@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "scene-draw",
+  "name": "scene draw",
+  "actorId": "demo-scene",
+  "duration": 1,
+  "loop": false,
+  "tracks": {
+    "drawing.opacity": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1,
+        "easing": "easeOutCubic"
+      }
+    ]
+  }
+}

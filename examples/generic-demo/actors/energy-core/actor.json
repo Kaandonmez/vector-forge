@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "energy-core",
+  "name": "Energy core",
+  "category": "Electronics",
+  "tags": [
+    "Electronics",
+    "editorial",
+    "demo"
+  ],
+  "style": "editorial-green",
+  "width": 320,
+  "height": 320,
+  "viewBox": [
+    0,
+    0,
+    320,
+    320
+  ],
+  "clips": [
+    "boost"
+  ]
+}

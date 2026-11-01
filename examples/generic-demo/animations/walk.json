@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "id": "walk",
+  "name": "walk",
+  "actorId": "studio-maker",
+  "duration": 1,
+  "loop": true,
+  "tracks": {
+    "legLeft.rotation": [
+      {
+        "time": 0,
+        "value": -16,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": 17,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -16,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "legRight.rotation": [
+      {
+        "time": 0,
+        "value": 17,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": -16,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 17,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "armLeft.rotation": [
+      {
+        "time": 0,
+        "value": 12,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": -12,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 12,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": -12,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": 12,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -12,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "human.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.25,
+        "value": -4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.75,
+        "value": -4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

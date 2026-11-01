@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "id": "scene-idle",
+  "name": "scene idle",
+  "actorId": "demo-scene",
+  "duration": 3.2,
+  "loop": true,
+  "tracks": {
+    "human.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.6,
+        "value": -1.7,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": -1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.6,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.2,
+        "value": -1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "armLeft.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.6,
+        "value": 2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "legLeft.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "legRight.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 3.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

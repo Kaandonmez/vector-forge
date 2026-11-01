@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "phone-ink",
+  "name": "Phone · ink edition",
+  "category": "Devices",
+  "tags": [
+    "Devices",
+    "editorial",
+    "demo"
+  ],
+  "style": "mono-ink",
+  "family": "phone-ink",
+  "variant": "triple-camera",
+  "width": 320,
+  "height": 320,
+  "viewBox": [
+    0,
+    0,
+    320,
+    320
+  ]
+}

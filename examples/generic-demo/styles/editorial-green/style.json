@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "editorial-green",
+  "name": "Botanical editorial",
+  "description": "Soft geometry, forest tones, and a little unexpected energy.",
+  "palette": [
+    "#203c32",
+    "#39594a",
+    "#64846b",
+    "#9ab59c",
+    "#dbe5d0",
+    "#f4f1e5",
+    "#b8f76a",
+    "#849d48",
+    "#c7b8ef",
+    "#9283b2",
+    "#edaf86",
+    "#c58362",
+    "#182a25",
+    "#ffffff"
+  ],
+  "maxColors": 14,
+  "stroke": {
+    "enabled": true,
+    "width": 2,
+    "maxWidth": 4
+  },
+  "geometry": {
+    "shapeLanguage": "rounded-geometric",
+    "detailLevel": "medium",
+    "corners": "soft with purposeful asymmetry"
+  },
+  "lighting": {
+    "shadow": "soft-grounded",
+    "highlight": "small-cream-reflections"
+  },
+  "perspective": {
+    "default": "three-quarter"
+  },
+  "motion": {
+    "defaultEasing": "easeInOutCubic",
+    "overshoot": 0.06,
+    "anticipation": 0.04,
+    "personality": "gentle and self-assured"
+  },
+  "guidance": "Build silhouettes first. Reuse the same camera capsule, inset edge and material colors across the phone family. Avoid tiny ornamental details; leave generous breathing room.",
+  "references": [
+    "phone-triple-camera",
+    "studio-plant"
+  ]
+}

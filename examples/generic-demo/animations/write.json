@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "id": "write",
+  "name": "write",
+  "actorId": "studio-maker",
+  "duration": 2,
+  "loop": true,
+  "tracks": {
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": -70,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": -75,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -69,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.5,
+        "value": -74,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": -70,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "handRight.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.5,
+        "value": 10,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": -5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.5,
+        "value": 8,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": -2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2,
+        "value": -2,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

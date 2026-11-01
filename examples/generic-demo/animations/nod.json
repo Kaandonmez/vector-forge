@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "nod",
+  "name": "nod",
+  "actorId": "studio-maker",
+  "duration": 1.6,
+  "loop": false,
+  "tracks": {
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.4,
+        "value": -3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.8,
+        "value": 9,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.6,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "head.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.4,
+        "value": -1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.8,
+        "value": 3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.6,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

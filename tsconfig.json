@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "types": ["node", "vite/client"]
+  },
+  "include": [
+    "apps",
+    "packages",
+    "scripts/studio.ts",
+    "scripts/generate-demo.ts",
+    "tests/*.ts",
+    "tests/browser/projects.spec.ts",
+    "tests/browser/studio.spec.ts",
+    "*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "apps/studio/dist",
+    "artifacts",
+    "projects",
+    "output",
+    "exports",
+    "examples"
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "celebrate",
+  "name": "celebrate",
+  "actorId": "studio-maker",
+  "duration": 2.2,
+  "loop": false,
+  "tracks": {
+    "armLeft.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 0.55,
+        "value": 7,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 1.1,
+        "value": 150,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 1.65,
+        "value": 133,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 2.2,
+        "value": 0,
+        "easing": "easeOutBack"
+      }
+    ],
+    "armRight.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 0.55,
+        "value": -7,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 1.1,
+        "value": -150,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 1.65,
+        "value": -133,
+        "easing": "easeOutBack"
+      },
+      {
+        "time": 2.2,
+        "value": 0,
+        "easing": "easeOutBack"
+      }
+    ],
+    "human.position.y": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.55,
+        "value": 3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.1,
+        "value": -13,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.65,
+        "value": -4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "head.rotation": [
+      {
+        "time": 0,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.7333,
+        "value": -5,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.4667,
+        "value": 2,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.2,
+        "value": 0,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}

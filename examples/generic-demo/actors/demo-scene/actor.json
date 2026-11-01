@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-scene",
+  "name": "An idea takes shape",
+  "category": "Scenes",
+  "tags": [
+    "Scenes",
+    "editorial",
+    "demo"
+  ],
+  "style": "editorial-green",
+  "width": 720,
+  "height": 400,
+  "viewBox": [
+    0,
+    0,
+    720,
+    400
+  ],
+  "clips": [
+    "scene-idle",
+    "scene-walk",
+    "scene-point",
+    "scene-talk",
+    "scene-draw"
+  ]
+}

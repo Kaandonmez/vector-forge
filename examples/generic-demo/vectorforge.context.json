@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "defaultPreview": "phone-triple-camera",
+  "defaultActor": "studio-plant",
+  "familyLabels": {
+    "phone-modern": "Phone family",
+    "phone-ink": "Ink family"
+  },
+  "namingConventions": "lowercase-kebab-case; prefix scene clips with scene-",
+  "rules": [
+    "Read the style and inspect sibling SVGs before creating variants.",
+    "Keep family proportions and three-quarter material cues consistent.",
+    "Use stable SVG IDs for every independently animated part.",
+    "Motion should use anticipation, overlapping phases and soft settling."
+  ],
+  "exportDestinations": {
+    "generic": "exports/generic",
+    "web": "exports/web",
+    "flutter": "exports/flutter"
+  },
+  "artDirection": "Warm editorial geometry. Quiet forest greens, chalk cream, mint highlights and small lilac accents. Deliberate silhouettes with restrained details."
+}

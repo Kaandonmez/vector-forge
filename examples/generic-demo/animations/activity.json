@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "id": "activity",
+  "name": "activity",
+  "actorId": "signal-chip",
+  "duration": 2.4,
+  "loop": true,
+  "tracks": {
+    "indicator1.opacity": [
+      {
+        "time": 0,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 0.4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "indicator2.opacity": [
+      {
+        "time": 0,
+        "value": 0.8,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 0.8,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "indicator3.opacity": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 0.4,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 0.3,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 0.8,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "indicator3.scale.x": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 1.16,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 1.1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ],
+    "indicator3.scale.y": [
+      {
+        "time": 0,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 0.6,
+        "value": 1.16,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.2,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 1.8,
+        "value": 1.1,
+        "easing": "easeInOutCubic"
+      },
+      {
+        "time": 2.4,
+        "value": 1,
+        "easing": "easeInOutCubic"
+      }
+    ]
+  }
+}
