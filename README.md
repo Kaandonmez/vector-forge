@@ -1,10 +1,38 @@
 # VectorForge
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-a3e635.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-22%2B-339933.svg)](https://nodejs.org/)
+[![MCP Ready](https://img.shields.io/badge/MCP-Official%20SDK-38bdf8.svg)](docs/MCP.md)
+[![GitHub Stars](https://img.shields.io/github/stars/Kaandonmez/vector-forge?style=social)](https://github.com/Kaandonmez/vector-forge/stargazers)
+
 **VectorForge — An AI-first 2D asset and motion pipeline for games, apps, and the web.**
 
 Create coherent SVG asset families, articulate reusable actors, animate them, inspect the results and export portable files. Your existing coding agent generates the artwork. VectorForge supplies shared context, style rules, validation, deterministic motion, browser previews and visual feedback.
 
 Everything runs locally. No API key, cloud account, subscription, database or proprietary animation runtime is required. The core does not assume a specific subject or art style.
+
+![VectorForge Studio Overview](docs/images/studio-overview.png)
+
+## Showcase — Production Assets Built with VectorForge
+
+VectorForge scales from a small component set to full game and application libraries with hundreds of cohesive static SVGs, customizable hardware variants, articulated character rigs, and cinematic backdrops.
+
+### Modular Hardware, Color Slots & Software Icons
+Inspect and customize modular SVG variants and live color slots (`#slot-body`, `#slot-screen`, `#slot-camera`) directly inside the Studio Inspector:
+
+![Customizable Hardware and Dynamic Color Slots](docs/images/showcase-customizable-hardware.png)
+
+### Articulated Characters, Rivals, Staff & Device Families
+Manage static product lines alongside rigged, multi-clip animated characters in one unified project tree:
+
+![Animated Characters and Hardware Families](docs/images/showcase-characters-and-devices.png)
+
+### Cinematic Scenes, Backdrops & System Glyphs
+Preview multi-layered environment backdrops, event cutscenes, hardware components, and UI glyphs with instant visual feedback:
+
+![Cinematic Scenes and Component Library](docs/images/showcase-cinematics-and-icons.png)
+
+> **Note:** The production screenshots above illustrate a 220-asset game library created with VectorForge. Only the clean `examples/generic-demo` starter project is bundled in this repository; any projects or assets you create locally stay ignored by Git so your repository remains clean.
 
 ## Quick start
 
@@ -50,6 +78,10 @@ Exports refuse conflicts unless `--overwrite` is explicitly supplied. Snapshots 
 Preview backgrounds, zoom, fit, playback speed, play/pause/stop/restart, loop and seek all operate on real project data. The camera button writes a unique PNG to the project's `exports/snapshots/` folder. External file changes refresh the Studio through Vite's watcher. Invalid SVG is kept out of previews.
 
 The **Browse by type** menu retains Assets, Actors, Animations, Sequences and Styles views. Folder definitions are portable `collections` in `vectorforge.context.json`; asset/actor metadata stores an optional `collection` ID. Organizing assets never changes source paths or motion IDs. Recent projects and tree expansion preferences are stored only in this browser. See [project organization](docs/PROJECTS.md).
+
+| Style Profiles & Art Direction | Deterministic Sequences & Playback |
+| --- | --- |
+| ![Style Profiles](docs/images/studio-style-profiles.png) | ![Sequence Playback](docs/images/studio-sequence-timeline.png) |
 
 ## CLI
 
@@ -193,6 +225,16 @@ pnpm build
 - Optional state-machine conditions are explicitly supplied booleans. Studio's demo events and busy condition demonstrate the API; no condition expression editor is included.
 - Node/TypeScript source packages are private workspace modules in v0.1. A distributable npm CLI and compiled packages are future release work.
 - Future directions: migration helpers, standalone Dart/Godot adapters, richer validators and optional AI providers. These are not required to use the local workflow.
+
+## Star History
+
+<a href="https://www.star-history.com/#Kaandonmez/vector-forge&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Kaandonmez/vector-forge&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=Kaandonmez/vector-forge&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Kaandonmez/vector-forge&type=Date" />
+ </picture>
+</a>
 
 ## License and contribution
 
