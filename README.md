@@ -17,20 +17,25 @@ Everything runs locally. No API key, cloud account, subscription, database or pr
 
 VectorForge scales from a small component set to full game and application libraries with hundreds of cohesive static SVGs, customizable hardware variants, articulated character rigs, and cinematic backdrops.
 
-### Modular Hardware, Color Slots & Software Icons
-Inspect and customize modular SVG variants and live color slots (`#slot-body`, `#slot-screen`, `#slot-camera`) directly inside the Studio Inspector:
+### Modular Hardware Variants & Dynamic Color Slots
+Inspect and customize modular SVG variants (`camera-pos`) and live color slots (`#slot-body`, `#slot-screen`, `#slot-camera`, `#slot-shadow`) across product families directly inside the Studio Inspector:
 
 ![Customizable Hardware and Dynamic Color Slots](docs/images/showcase-customizable-hardware.png)
 
-### Articulated Characters, Rivals, Staff & Device Families
-Manage static product lines alongside rigged, multi-clip animated characters in one unified project tree:
+### Articulated Characters, Rivals & Studio Staff
+Manage rigged, multi-clip animated characters with state machines and deterministic playback alongside static assets in one unified project tree:
 
-![Animated Characters and Hardware Families](docs/images/showcase-characters-and-devices.png)
+![Animated Characters and Staff Library](docs/images/showcase-characters-and-devices.png)
 
-### Cinematic Scenes, Backdrops & System Glyphs
-Preview multi-layered environment backdrops, event cutscenes, hardware components, and UI glyphs with instant visual feedback:
+### Cinematic Scenes, Cutscenes & Office Environments
+Preview multi-layered environment backdrops and event cutscenes with instant visual feedback:
 
-![Cinematic Scenes and Component Library](docs/images/showcase-cinematics-and-icons.png)
+![Cinematic Scenes and Office Environments](docs/images/showcase-cinematics-and-icons.png)
+
+### Hardware Components, Optics & Format Badges
+Organize deep nested folder collections for processors, sensors, display panels, batteries, cooling modules, and format badges:
+
+![Supply Chain Components and Format Badges](docs/images/showcase-components-and-glyphs.png)
 
 > **Note:** The production screenshots above illustrate a 220-asset game library created with VectorForge. Only the clean `examples/generic-demo` starter project is bundled in this repository; any projects or assets you create locally stay ignored by Git so your repository remains clean.
 
