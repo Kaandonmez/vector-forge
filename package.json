@@ -8,7 +8,7 @@
   "homepage": "https://github.com/Kaandonmez/vector-forge",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kaandonmez/vector-forge.git"
+    "url": "git+https://github.com/Kaandonmez/vector-forge.git"
   },
   "bugs": {
     "url": "https://github.com/Kaandonmez/vector-forge/issues"
@@ -30,8 +30,8 @@
     "node": ">=22"
   },
   "bin": {
-    "vectorforge": "./dist/cli.js",
-    "vectorforge-mcp": "./dist/mcp-bin.js"
+    "vectorforge": "dist/cli.js",
+    "vectorforge-mcp": "dist/mcp-bin.js"
   },
   "main": "./dist/index.js",
   "exports": {
