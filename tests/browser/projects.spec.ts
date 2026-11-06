@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { promises as fs } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import type { ProjectData } from '../../packages/schema/src/index.ts';
 
@@ -89,7 +90,7 @@ test('Custom nested folders persist, rename and reparent while preserving SVG, r
   page,
 }) => {
   const original = await project(page),
-    temp = await fs.mkdtemp('/private/tmp/vectorforge-folders-');
+    temp = await fs.mkdtemp(path.join(await fs.realpath(os.tmpdir()), 'vectorforge-folders-'));
   const root = path.join(temp, 'game');
   await fs.cp(original.root, root, { recursive: true, filter: (f) => !f.includes('/exports') });
   try {
@@ -188,7 +189,7 @@ test('Creating an independent project protects existing directories and starts w
   page,
 }) => {
   const original = await project(page),
-    temp = await fs.mkdtemp('/private/tmp/vectorforge-projects-');
+    temp = await fs.mkdtemp(path.join(await fs.realpath(os.tmpdir()), 'vectorforge-projects-'));
   try {
     await page.goto('/');
     await page.getByLabel('Add project').click();

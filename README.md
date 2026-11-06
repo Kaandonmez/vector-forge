@@ -18,21 +18,25 @@ Everything runs locally. No API key, cloud account, subscription, database or pr
 VectorForge scales from a small component set to full game and application libraries with hundreds of cohesive static SVGs, customizable hardware variants, articulated character rigs, and cinematic backdrops.
 
 ### Modular Hardware Variants & Dynamic Color Slots
+
 Inspect and customize modular SVG variants (`camera-pos`) and live color slots (`#slot-body`, `#slot-screen`, `#slot-camera`, `#slot-shadow`) across product families directly inside the Studio Inspector:
 
 ![Customizable Hardware and Dynamic Color Slots](docs/images/showcase-customizable-hardware.png)
 
 ### Articulated Characters, Rivals & Studio Staff
+
 Manage rigged, multi-clip animated characters with state machines and deterministic playback alongside static assets in one unified project tree:
 
 ![Animated Characters and Staff Library](docs/images/showcase-characters-and-devices.png)
 
 ### Cinematic Scenes, Cutscenes & Office Environments
+
 Preview multi-layered environment backdrops and event cutscenes with instant visual feedback:
 
 ![Cinematic Scenes and Office Environments](docs/images/showcase-cinematics-and-icons.png)
 
 ### Hardware Components, Optics & Format Badges
+
 Organize deep nested folder collections for processors, sensors, display panels, batteries, cooling modules, and format badges:
 
 ![Supply Chain Components and Format Badges](docs/images/showcase-components-and-glyphs.png)
@@ -45,14 +49,34 @@ Requires Node.js 22+ and pnpm 11.19+.
 
 ```sh
 pnpm install
+pnpm build
 pnpm exec playwright install chromium
 pnpm dev
 ```
 
 Open **http://127.0.0.1:5173**. The bundled `examples/generic-demo` project opens automatically. Chromium is needed for snapshots and browser tests; asset management, validation and export work without it.
 
+### Distributable CLI & Local Tarball Install
+
+`pnpm build` compiles the Studio UI (`apps/studio/dist/`) and standalone Node.js ESM entrypoints (`dist/cli.js`, `dist/mcp.js`, `dist/index.js`, `dist/vectorforge-runtime.js`) so the CLI and MCP server run without requiring `tsx` at runtime:
+
+```sh
+# Run the compiled CLI directly:
+node ./dist/cli.js --help
+node ./dist/cli.js doctor
+
+# Or create and install a portable npm tarball locally:
+npm pack
+npm install -g ./vectorforge-0.1.0.tgz
+vectorforge --help
+vectorforge doctor
+```
+
+_(Once the `vectorforge` package is published to the npm registry, `npx vectorforge --help` and `npx vectorforge mcp --project <path>` will work directly without a repository clone.)_
+
 ```sh
 pnpm vectorforge --help
+pnpm vectorforge doctor
 pnpm vectorforge validate
 pnpm vectorforge list assets
 pnpm vectorforge snapshot phone-triple-camera
@@ -84,14 +108,15 @@ Preview backgrounds, zoom, fit, playback speed, play/pause/stop/restart, loop an
 
 The **Browse by type** menu retains Assets, Actors, Animations, Sequences and Styles views. Folder definitions are portable `collections` in `vectorforge.context.json`; asset/actor metadata stores an optional `collection` ID. Organizing assets never changes source paths or motion IDs. Recent projects and tree expansion preferences are stored only in this browser. See [project organization](docs/PROJECTS.md).
 
-| Style Profiles & Art Direction | Deterministic Sequences & Playback |
-| --- | --- |
+| Style Profiles & Art Direction                           | Deterministic Sequences & Playback                             |
+| -------------------------------------------------------- | -------------------------------------------------------------- |
 | ![Style Profiles](docs/images/studio-style-profiles.png) | ![Sequence Playback](docs/images/studio-sequence-timeline.png) |
 
 ## CLI
 
 ```sh
 pnpm vectorforge init ./projects/my-project --name "My visual project"
+pnpm vectorforge doctor --project ./projects/my-project
 pnpm dev --project ./projects/my-project
 pnpm vectorforge context --project ./projects/my-project
 pnpm vectorforge create style ./style.json --project ./projects/my-project
@@ -101,40 +126,70 @@ pnpm vectorforge create actor ./actor.json --svg ./actor.svg --rig ./rig.json --
 pnpm vectorforge create animation ./animation.json --project ./projects/my-project
 pnpm vectorforge create sequence ./sequence.json --project ./projects/my-project
 pnpm vectorforge update asset ./asset.json --svg ./asset.svg --project ./projects/my-project
+pnpm vectorforge export-all --dest ./output --format flutter --dry-run --project ./projects/my-project
 pnpm vectorforge export-all --dest ./output --format flutter --project ./projects/my-project
 ```
 
 `create` rejects existing IDs; `update` requires an existing resource. Create styles before dependent assets, actors before clips, and clips before sequences. Add an actor's `clips` and `stateMachine` references after those resources exist. Local user projects and generated outputs under `projects/`, `output/`, `exports/`, `artifacts/` and custom `examples/*` directories are ignored by Git so your own asset production stays out of version control.
 
-## MCP
+## MCP & Agent Skills
 
 The first-class stdio server uses the [official Model Context Protocol TypeScript SDK](https://ts.sdk.modelcontextprotocol.io/server). Start it with:
 
 ```sh
+# Using the compiled distribution (after pnpm build):
+node ./dist/cli.js mcp --project ./examples/generic-demo
+
+# Or via pnpm during development:
 pnpm vectorforge mcp --project ./examples/generic-demo
 ```
 
-Use this configuration in any MCP-compatible client, substituting your absolute repository path:
+### Client Setup (Claude Code, Cursor, VS Code / GitHub Copilot & Generic MCP Clients)
 
-```json
-{
-  "mcpServers": {
-    "vectorforge": {
-      "command": "pnpm",
-      "args": [
-        "--dir",
-        "/absolute/path/vector_forge",
-        "vectorforge",
-        "mcp",
-        "--project",
-        "/absolute/path/vector_forge/examples/generic-demo"
-      ]
+Each MCP process locks to one project directory (`--project <path>` or `VECTORFORGE_PROJECT`). Pass `--init` (or call `vectorforge_init_project` over MCP) to initialize an empty project directory on first run.
+
+- **Repository Checkout Mode (Works Immediately Today Before npm Publication)**:
+  ```json
+  {
+    "mcpServers": {
+      "vectorforge": {
+        "command": "node",
+        "args": ["/path/to/vector_forge/dist/cli.js", "mcp", "--project", "/path/to/my-project"]
+      }
     }
   }
-}
-```
+  ```
+- **Claude Code (`.mcp.json`) / Cursor (`.cursor/mcp.json`) _(after npm publication or local `npm install -g ./vectorforge-0.1.0.tgz`)_**:
+  ```json
+  {
+    "mcpServers": {
+      "vectorforge": {
+        "command": "npx",
+        "args": ["-y", "vectorforge", "mcp", "--project", "."]
+      }
+    }
+  }
+  ```
+- **VS Code / GitHub Copilot (`.vscode/mcp.json`) _(after npm publication or local tarball install)_**:
+  ```json
+  {
+    "servers": {
+      "vectorforge": {
+        "type": "stdio",
+        "command": "npx",
+        "args": ["-y", "vectorforge", "mcp", "--project", "${workspaceFolder}"]
+      }
+    }
+  }
+  ```
 
-Read context → inspect style and siblings → generate SVG/JSON → create/update → validate → snapshot → inspect → export. See [MCP setup and tool reference](docs/MCP.md).
+### Bundled Agent Skill (`SKILL.md` Standard)
+
+This repository includes the free **[VectorForge MCP Starter Skill](skills/vectorforge-mcp-starter/SKILL.md)** (`skills/vectorforge-mcp-starter/`), which guides MCP-connected coding agents through the complete workflow:
+
+Read context → inspect style and siblings → generate SVG/JSON → create/update → validate → snapshot → inspect → export.
+
+See [MCP setup and tool reference](docs/MCP.md) and [Starter skill documentation](skills/vectorforge-mcp-starter/README.md).
 
 ## Project format
 
@@ -183,20 +238,28 @@ Actor exports include their referenced motions and styles; variants include the 
 
 Flutter export packages portable assets and motion data. It **does not include a Dart/Flame motion runtime**; integrate the JSON with your application's renderer. Static SVG use can rely on a renderer of your choice. Flutter itself need not be installed for export.
 
+## Troubleshooting
+
+- **Check Installation & Project Health:** Run `pnpm vectorforge doctor --project <path>` (or `vectorforge doctor`) to verify Node.js >= 22, MCP server readiness, Studio UI build, Playwright Chromium availability, and project validation status.
+- **Missing Chromium on Snapshot:** If `snapshot` reports `Playwright Chromium is missing`, run `npx playwright install chromium` (or `pnpm exec playwright install chromium`).
+- **Missing Project (`No VectorForge project at ...`):** Run `vectorforge init <directory>` first, or pass `--init` when starting `vectorforge mcp`.
+- **Export Conflict Errors:** Always preview exports with `--dry-run` (`dryRun: true` in MCP). Pass `--overwrite` (`overwrite: true`) only when you intend to replace existing destination files.
+
 ## Architecture
 
 ```text
-apps/studio/                  React + Vite inspection UI
-packages/schema/              Runtime schemas and shared types
-packages/svg/                 Static SVG and objective style validation
-packages/core/                Files, project context, safe CRUD, snapshots
-packages/motion/              Easing, interpolation, playback, sequences, states
-packages/renderer-web/        Generic SVG DOM articulation
-packages/cli/                 Local command-line interface
-packages/mcp/                 Official SDK stdio interface
-packages/exporters/           Generic, web and Flutter adapters
-examples/generic-demo/        Ordinary portable demo project
-tests/                        Unit, filesystem, CLI, MCP and browser tests
+apps/studio/                      React + Vite inspection UI
+packages/schema/                  Runtime schemas and shared types
+packages/svg/                     Static SVG and objective style validation
+packages/core/                    Files, project context, safe CRUD, snapshots
+packages/motion/                  Easing, interpolation, playback, sequences, states
+packages/renderer-web/            Generic SVG DOM articulation
+packages/cli/                     Local command-line interface
+packages/mcp/                     Official SDK stdio interface
+packages/exporters/               Generic, web and Flutter adapters
+skills/vectorforge-mcp-starter/   Free Agent Skill (SKILL.md) for MCP onboarding
+examples/generic-demo/            Ordinary portable demo project
+tests/                            Unit, filesystem, CLI, MCP, distribution and browser tests
 ```
 
 Static SVG validation does not depend on the motion engine. The motion engine knows nodes and properties, not plants, people or electronics. Styles and demo artwork are files, not engine defaults. See [architecture and decisions](docs/ARCHITECTURE.md).
@@ -217,9 +280,9 @@ pnpm test:browser
 pnpm build
 ```
 
-`pnpm test` exercises real schemas, motion, SVG validation, safe file operations, exporter conflicts, CLI processes and an official MCP client, including PNG generation. `pnpm test:browser` verifies Studio flows, every demo asset/human clip, object motion, sequence playback, source validation, snapshots, file reload and mobile layout. It writes visual QA images to `artifacts/qa/` and a Playwright report. See [verification notes](docs/VERIFICATION.md).
+`pnpm test` exercises real schemas, motion, SVG validation, safe file operations, exporter conflicts, CLI processes, an official MCP client, PNG generation and clean npm tarball distribution. `pnpm test:browser` verifies Studio flows, every demo asset/human clip, object motion, sequence playback, source validation, snapshots, file reload and mobile layout. It writes visual QA images to `artifacts/qa/` and a Playwright report. See [verification notes](docs/VERIFICATION.md).
 
-`pnpm build` typechecks and builds the browser UI. `pnpm dev` remains the supported local Studio entrypoint, because the UI uses the local file API; the UI build alone is not a hosted/cloud application.
+`pnpm build` typechecks, builds the browser UI (`apps/studio/dist/`) and compiles the Node ESM CLI/MCP distribution (`dist/`). The Studio UI uses the local file API and is designed for local loopback execution rather than public cloud hosting.
 
 ## v0.1 limits and roadmap
 
@@ -228,7 +291,6 @@ pnpm build
 - Sequence composition is ordered property overlay. There is no additive blending, constraints, IK or arbitrary script execution.
 - Writes are atomic per resource file with rollback for a failed bundle. There is no cross-process locking; avoid simultaneous writers to the same resource. Exports preflight all files, but a later filesystem error can leave an incomplete destination; the returned failure never claims completion.
 - Optional state-machine conditions are explicitly supplied booleans. Studio's demo events and busy condition demonstrate the API; no condition expression editor is included.
-- Node/TypeScript source packages are private workspace modules in v0.1. A distributable npm CLI and compiled packages are future release work.
 - Future directions: migration helpers, standalone Dart/Godot adapters, richer validators and optional AI providers. These are not required to use the local workflow.
 
 ## Star History

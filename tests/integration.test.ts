@@ -2,6 +2,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import { promises as fs } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import { execFile } from 'node:child_process';
@@ -12,7 +13,8 @@ const exec = promisify(execFile),
   cli = path.join(repo, 'packages/cli/src/index.ts');
 let temp: string, root: string, client: Client;
 beforeAll(async () => {
-  temp = await fs.mkdtemp('/private/tmp/vectorforge-integration-');
+  const tmpBase = await fs.realpath(os.tmpdir());
+  temp = await fs.mkdtemp(path.join(tmpBase, 'vectorforge-integration-'));
   root = path.join(temp, 'project');
   await fs.cp(defaultProject, root, { recursive: true, filter: (f) => !f.includes('/exports') });
   client = new Client({ name: 'vectorforge-acceptance-client', version: '1.0.0' });

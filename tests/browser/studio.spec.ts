@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import { promises as fs } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { createServer } from 'node:http';
 import { defaultProject, readProject, safePath } from '../../packages/core/src/index.ts';
@@ -187,7 +188,7 @@ test('Styles, validation, source editing safeguards, snapshot and export plans a
   await page.getByLabel('Close dialog').click();
 });
 test('External file edits reload the preview and malformed JSON is reported', async ({ page }) => {
-  const temp = await fs.mkdtemp('/private/tmp/vectorforge-browser-');
+  const temp = await fs.mkdtemp(path.join(await fs.realpath(os.tmpdir()), 'vectorforge-browser-'));
   const response = await page.request.get('/api/project');
   const originalProject = await response.json();
   const root = path.join(temp, 'project');
@@ -259,7 +260,9 @@ test('Rig reparenting retains authored transforms and opacity tracks override a 
   expect(result.opacity).toBe('0.75');
 });
 test('A standalone web export renders and animates without the Studio server', async ({ page }) => {
-  const root = await fs.mkdtemp('/private/tmp/vectorforge-web-consumer-');
+  const root = await fs.mkdtemp(
+    path.join(await fs.realpath(os.tmpdir()), 'vectorforge-web-consumer-'),
+  );
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   await exportProject(await readProject(defaultProject), root, {

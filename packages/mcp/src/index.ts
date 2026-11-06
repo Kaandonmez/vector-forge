@@ -1,9 +1,12 @@
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 import {
   createVariant,
   defaultProject,
+  initProject,
   projectContext,
   readProject,
   saveResource,
@@ -14,6 +17,7 @@ import { exportProject } from '../../exporters/index.ts';
 import type { ProjectData } from '../../schema/src/index.ts';
 
 export function createMcpServer(root = defaultProject) {
+  const boundRoot = path.resolve(root);
   const server = new McpServer(
     { name: 'vectorforge', version: '0.1.0' },
     {
@@ -46,7 +50,16 @@ export function createMcpServer(root = defaultProject) {
         }
       },
     );
-  const project = () => readProject(root);
+  const project = () => readProject(boundRoot);
+  register(
+    'init_project',
+    'Initialize an empty directory as a portable VectorForge project if vectorforge.project.json does not exist yet.',
+    { name: z.string().optional() },
+    async ({ name }) =>
+      text(
+        await initProject(boundRoot, name ?? (path.basename(boundRoot) || 'VectorForge Project')),
+      ),
+  );
   register(
     'project_info',
     'Get local project metadata, root, counts and validation summary.',
@@ -72,6 +85,18 @@ export function createMcpServer(root = defaultProject) {
     'Read machine-readable art direction, styles, families, sibling assets, available actors and motions.',
     {},
     async () => text(projectContext(await project())),
+  );
+  register(
+    'update_project',
+    'Update vectorforge.project.json (name, defaultStyle, description). Validates defaultStyle reference before writing.',
+    { data: z.record(z.unknown()) },
+    async ({ data }) => text(await saveResource(boundRoot, 'project', data, { overwrite: true })),
+  );
+  register(
+    'update_context',
+    'Update vectorforge.context.json (collections, rules, namingConventions, exportDestinations). Validates collection hierarchy before writing.',
+    { data: z.record(z.unknown()) },
+    async ({ data }) => text(await saveResource(boundRoot, 'context', data, { overwrite: true })),
   );
   const collections = {
     style: 'styles',
@@ -119,7 +144,7 @@ export function createMcpServer(root = defaultProject) {
         },
         async (args) =>
           text(
-            await saveResource(root, kind as ResourceKind, args.data, {
+            await saveResource(boundRoot, kind as ResourceKind, args.data, {
               svg: args.svg,
               rig: args.rig,
               overwrite: operation === 'update',
@@ -132,13 +157,13 @@ export function createMcpServer(root = defaultProject) {
     'Update an actor rig, validating mappings and parent cycles.',
     { actorId: z.string(), data: z.record(z.unknown()) },
     async ({ actorId, data }) =>
-      text(await saveResource(root, 'rig', data, { id: actorId, overwrite: true })),
+      text(await saveResource(boundRoot, 'rig', data, { id: actorId, overwrite: true })),
   );
   register(
     'create_variant',
     'Create a static asset variant inheriting its base family and style; supply new SVG and metadata overrides.',
     { baseId: z.string(), data: z.record(z.unknown()), svg: z.string() },
-    async ({ baseId, data, svg }) => text(await createVariant(root, baseId, data, svg)),
+    async ({ baseId, data, svg }) => text(await createVariant(boundRoot, baseId, data, svg)),
   );
   register(
     'validate',
@@ -158,11 +183,11 @@ export function createMcpServer(root = defaultProject) {
     async ({ id }) => {
       if (!previewServer) {
         const { createStudio } = await import('../../../scripts/studio.ts');
-        previewServer = await createStudio(root, 0);
+        previewServer = await createStudio(boundRoot, 0);
       }
       return text({
         url: previewServer.url + (id ? `/?selected=${encodeURIComponent(id)}` : ''),
-        project: root,
+        project: boundRoot,
       });
     },
   );
@@ -178,7 +203,7 @@ export function createMcpServer(root = defaultProject) {
       overwrite: z.boolean().optional(),
     },
     async (args) => {
-      const result = await snapshot(root, args.id, args);
+      const result = await snapshot(boundRoot, args.id, args);
       return {
         content: [
           {
@@ -206,15 +231,31 @@ export function createMcpServer(root = defaultProject) {
     );
   return {
     server,
+    root: boundRoot,
     async close() {
       await previewServer?.server.close();
       await server.close();
     },
   };
 }
-export async function startMcp(root = defaultProject) {
-  await readProject(root);
-  const mcp = createMcpServer(root);
+export async function startMcp(
+  root = defaultProject,
+  options: { init?: boolean; name?: string } = {},
+) {
+  const boundRoot = path.resolve(root);
+  const hasProjectFile = await fs.access(path.join(boundRoot, 'vectorforge.project.json')).then(
+    () => true,
+    () => false,
+  );
+  if (options.init && !hasProjectFile) {
+    await initProject(
+      boundRoot,
+      options.name ?? (path.basename(boundRoot) || 'VectorForge Project'),
+    );
+  } else if (hasProjectFile) {
+    await readProject(boundRoot);
+  }
+  const mcp = createMcpServer(boundRoot);
   const transport = new StdioServerTransport();
   await mcp.server.connect(transport);
   transport.onclose = () => {

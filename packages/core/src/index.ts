@@ -1,4 +1,4 @@
-import { promises as fs } from 'node:fs';
+import { promises as fs, existsSync } from 'node:fs';
 import path from 'node:path';
 import type { z } from 'zod';
 import {
@@ -25,7 +25,32 @@ export function isActorEntry(entry: AssetEntry | ActorEntry): entry is ActorEntr
   return 'rig' in entry;
 }
 
-export const defaultProject = path.resolve(import.meta.dirname, '../../../examples/generic-demo');
+export function resolvePackageRoot(startDir = import.meta.dirname): string {
+  let cursor = path.resolve(startDir);
+  for (let i = 0; i < 6; i++) {
+    if (
+      existsSync(path.join(cursor, 'examples/generic-demo/vectorforge.project.json')) ||
+      existsSync(path.join(cursor, 'apps/studio'))
+    ) {
+      return cursor;
+    }
+    const parent = path.dirname(cursor);
+    if (parent === cursor) break;
+    cursor = parent;
+  }
+  return path.resolve(startDir, '../../..');
+}
+
+export const packageRoot = resolvePackageRoot();
+export const defaultProject = path.join(packageRoot, 'examples/generic-demo');
+
+export function resolveProjectRoot(explicitProject?: string, cwd = process.cwd()): string {
+  if (explicitProject && explicitProject.trim()) return path.resolve(cwd, explicitProject.trim());
+  const envProject = process.env.VECTORFORGE_PROJECT;
+  if (envProject && envProject.trim()) return path.resolve(cwd, envProject.trim());
+  if (existsSync(path.join(cwd, 'vectorforge.project.json'))) return path.resolve(cwd);
+  return defaultProject;
+}
 export async function safePath(root: string, relative: string): Promise<string> {
   const base = path.resolve(root),
     destination = path.resolve(base, relative);
@@ -83,6 +108,14 @@ export async function readProject(root: string = defaultProject): Promise<Projec
       return undefined;
     }
   };
+  const hasProjectFile = await fs.access(path.join(root, 'vectorforge.project.json')).then(
+    () => true,
+    () => false,
+  );
+  if (!hasProjectFile)
+    throw new Error(
+      `No VectorForge project at ${root} (missing vectorforge.project.json). Run "vectorforge init <directory>", pass "--init" to "vectorforge mcp", call "vectorforge_init_project", or pass "--project <path>".`,
+    );
   const project = await read('vectorforge.project.json', projectSchema);
   if (!project)
     throw new Error(

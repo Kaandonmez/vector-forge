@@ -1,8 +1,71 @@
-import { chromium } from '@playwright/test';
-import { promises as fs } from 'node:fs';
+import { promises as fs, existsSync } from 'node:fs';
+import { createRequire } from 'node:module';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { idSchema } from '../../schema/src/index.ts';
 import { readProject, safePath } from './index.ts';
+
+type ChromiumType = {
+  launch(options?: { headless?: boolean }): Promise<any>;
+  executablePath(): string;
+};
+
+export async function resolveChromium(): Promise<ChromiumType | undefined> {
+  const candidates = ['@playwright/test', 'playwright', 'playwright-core'];
+  for (const mod of candidates) {
+    try {
+      const loaded = await import(mod);
+      if (loaded?.chromium) return loaded.chromium as ChromiumType;
+    } catch {
+      // Try resolving from current working directory if installed in user project
+      try {
+        const req = createRequire(path.join(process.cwd(), 'package.json'));
+        const resolved = req.resolve(mod);
+        const loaded = await import(pathToFileURL(resolved).href);
+        if (loaded?.chromium) return loaded.chromium as ChromiumType;
+      } catch {
+        // continue
+      }
+    }
+  }
+  return undefined;
+}
+
+export async function checkChromiumStatus(): Promise<{
+  available: boolean;
+  executablePath?: string;
+  message: string;
+}> {
+  const chromium = await resolveChromium();
+  if (!chromium) {
+    return {
+      available: false,
+      message:
+        'Playwright is not installed in this environment. Install it and run "npx playwright install chromium" to enable PNG snapshots.',
+    };
+  }
+  try {
+    const execPath = chromium.executablePath();
+    if (execPath && existsSync(execPath)) {
+      return {
+        available: true,
+        executablePath: execPath,
+        message: 'Playwright Chromium is installed and ready for PNG snapshots.',
+      };
+    }
+    return {
+      available: false,
+      executablePath: execPath,
+      message:
+        'Playwright is installed, but the Chromium browser binary is missing. Run "npx playwright install chromium" (or "pnpm exec playwright install chromium").',
+    };
+  } catch (error) {
+    return {
+      available: false,
+      message: `Cannot verify Chromium binary: ${error instanceof Error ? error.message : String(error)}. Run "npx playwright install chromium".`,
+    };
+  }
+}
 
 export async function snapshot(
   root: string,
@@ -70,6 +133,11 @@ export async function snapshot(
     ))
   )
     throw new Error(`Snapshot already exists: ${output}. Specify overwrite explicitly.`);
+  const chromium = await resolveChromium();
+  if (!chromium)
+    throw new Error(
+      'Playwright Chromium is missing. Install Playwright and run "npx playwright install chromium" (or "pnpm exec playwright install chromium"), then retry.',
+    );
   await fs.mkdir(path.dirname(output), { recursive: true });
   await safePath(path.dirname(output), path.basename(output));
   const { createStudio } = await import('../../../scripts/studio.ts');
@@ -104,7 +172,7 @@ export async function snapshot(
   } catch (error) {
     if (String(error).includes('Executable doesn'))
       throw new Error(
-        'Playwright Chromium is missing. Run pnpm exec playwright install chromium, then retry.',
+        'Playwright Chromium is missing. Run "npx playwright install chromium" (or "pnpm exec playwright install chromium"), then retry.',
       );
     throw error;
   } finally {

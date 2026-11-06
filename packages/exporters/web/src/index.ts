@@ -1,9 +1,19 @@
-import { build } from 'vite';
+import { promises as fs, existsSync } from 'node:fs';
 import path from 'node:path';
 import type { ProjectData } from '../../../schema/src/index.ts';
+import { packageRoot } from '../../../core/src/index.ts';
 import { genericFiles } from '../../generic/src/index.ts';
-export async function webFiles(data: ProjectData, id?: string) {
-  const files = genericFiles(data, id);
+
+async function loadWebRuntime(): Promise<string> {
+  const prebuilt = path.join(packageRoot, 'dist/vectorforge-runtime.js');
+  const sourceEntry = path.join(packageRoot, 'packages/exporters/web/src/runtime.ts');
+  if (existsSync(prebuilt)) {
+    return fs.readFile(prebuilt, 'utf8');
+  }
+  const entry = existsSync(sourceEntry)
+    ? sourceEntry
+    : path.join(import.meta.dirname, 'runtime.ts');
+  const { build } = await import('vite');
   const result = await build({
     configFile: false,
     logLevel: 'silent',
@@ -11,7 +21,7 @@ export async function webFiles(data: ProjectData, id?: string) {
       write: false,
       minify: false,
       lib: {
-        entry: path.join(import.meta.dirname, 'runtime.ts'),
+        entry,
         formats: ['es'],
         fileName: 'vectorforge-runtime',
       },
@@ -20,7 +30,12 @@ export async function webFiles(data: ProjectData, id?: string) {
   const output = (Array.isArray(result) ? result[0] : result) as {
     output: { type: string; code?: string }[];
   };
-  files['vectorforge-runtime.js'] = output.output.find((o) => o.type === 'chunk')!.code!;
+  return output.output.find((o) => o.type === 'chunk')!.code!;
+}
+
+export async function webFiles(data: ProjectData, id?: string) {
+  const files = genericFiles(data, id);
+  files['vectorforge-runtime.js'] = await loadWebRuntime();
   files['index.html'] =
     `<!doctype html><html><head><meta charset="utf-8"><title>VectorForge export</title><style>body{background:#edf1e7;color:#203629;font:16px system-ui;max-width:960px;margin:40px auto}select{padding:12px}#stage{height:540px;margin:20px 0}</style></head><body><h1>VectorForge · ${data.project.name.replace(/[<>&"]/g, '')}</h1><select id="assets"></select><select id="clips"></select><button id="play">Play / pause</button><div id="stage"></div><script type="module">
 import {mount} from './vectorforge-runtime.js';

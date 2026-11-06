@@ -18,6 +18,7 @@
     "packages",
     "scripts/studio.ts",
     "scripts/generate-demo.ts",
+    "scripts/build-dist.ts",
     "tests/*.ts",
     "tests/browser/projects.spec.ts",
     "tests/browser/studio.spec.ts",
@@ -25,8 +26,10 @@
   ],
   "exclude": [
     "node_modules",
+    "dist",
     "apps/studio/dist",
     "artifacts",
+    ".private",
     "projects",
     "output",
     "exports",

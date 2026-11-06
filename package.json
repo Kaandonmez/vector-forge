@@ -1,17 +1,59 @@
 {
   "name": "vectorforge",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "type": "module",
   "description": "An AI-first 2D asset and motion pipeline for games, apps, and the web.",
+  "homepage": "https://github.com/Kaandonmez/vector-forge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kaandonmez/vector-forge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Kaandonmez/vector-forge/issues"
+  },
+  "keywords": [
+    "svg",
+    "vector",
+    "animation",
+    "rigging",
+    "mcp",
+    "model-context-protocol",
+    "ai-agent",
+    "game-assets",
+    "flutter",
+    "web-animation"
+  ],
   "packageManager": "pnpm@11.19.0",
   "engines": {
     "node": ">=22"
   },
+  "bin": {
+    "vectorforge": "./dist/cli.js",
+    "vectorforge-mcp": "./dist/mcp-bin.js"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./mcp": "./dist/mcp.js",
+    "./cli": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "apps/studio/dist",
+    "examples/generic-demo",
+    "!examples/generic-demo/exports",
+    "skills/vectorforge-mcp-starter",
+    "docs",
+    "!docs/images",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "node --import tsx scripts/studio.ts",
-    "build": "tsc --noEmit && vite build --config apps/studio/vite.config.ts",
+    "build": "tsc --noEmit && vite build --config apps/studio/vite.config.ts && node --import tsx scripts/build-dist.ts",
+    "prepublishOnly": "pnpm build",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
@@ -25,9 +67,6 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",
     "@xmldom/xmldom": "^0.8.11",
-    "lucide-react": "^0.468.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -38,7 +77,10 @@
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9.39.0",
+    "lucide-react": "^0.468.0",
     "prettier": "^3.9.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.0",

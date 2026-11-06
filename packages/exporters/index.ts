@@ -14,6 +14,7 @@ export type ExportPlan = {
   conflicts: string[];
   dryRun: boolean;
   written: string[];
+  summary: string;
 };
 export async function planExport(
   data: ProjectData,
@@ -73,7 +74,13 @@ export async function planExport(
     );
     if (exists) conflicts.push(file);
   }
-  return { plan: { destination: dest, format, files, conflicts, dryRun, written: [] }, content };
+  const summary = dryRun
+    ? `Dry run (${format}): ${files.length} file(s) planned for ${dest}${conflicts.length ? `, ${conflicts.length} conflict(s) detected (pass --overwrite or overwrite: true to replace)` : ', 0 conflicts'}. No files were written.`
+    : `Export (${format}): ${files.length} file(s) targeted for ${dest}.`;
+  return {
+    plan: { destination: dest, format, files, conflicts, dryRun, written: [], summary },
+    content,
+  };
 }
 export async function exportProject(
   data: ProjectData,
@@ -100,5 +107,6 @@ export async function exportProject(
     await fs.writeFile(target, content[file], { flag: options.overwrite ? 'w' : 'wx' });
     plan.written.push(file);
   }
+  plan.summary = `Export complete (${plan.format}): wrote ${plan.written.length} file(s) to ${plan.destination}.`;
   return plan;
 }

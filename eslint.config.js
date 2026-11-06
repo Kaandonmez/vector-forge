@@ -4,8 +4,10 @@ export default tseslint.config(
   {
     ignores: [
       'node_modules/**',
+      'dist/**',
       'apps/studio/dist/**',
       'artifacts/**',
+      '.private/**',
       'test-results/**',
       'playwright-report/**',
       'projects/**',
@@ -16,6 +18,7 @@ export default tseslint.config(
       'scripts/*',
       '!scripts/studio.ts',
       '!scripts/generate-demo.ts',
+      '!scripts/build-dist.ts',
       'tests/browser/*',
       '!tests/browser/projects.spec.ts',
       '!tests/browser/studio.spec.ts',

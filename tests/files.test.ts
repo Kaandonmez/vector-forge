@@ -1,5 +1,6 @@
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { promises as fs } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import {
   defaultProject,
@@ -15,7 +16,8 @@ import { flutterFiles } from '../packages/exporters/flutter/src/index.ts';
 
 let temp: string, root: string;
 beforeAll(async () => {
-  temp = await fs.mkdtemp('/private/tmp/vectorforge-files-');
+  const tmpBase = await fs.realpath(os.tmpdir());
+  temp = await fs.mkdtemp(path.join(tmpBase, 'vectorforge-files-'));
   root = path.join(temp, 'project');
   await fs.cp(defaultProject, root, { recursive: true, filter: (s) => !s.includes('/exports') });
 });

@@ -1,7 +1,10 @@
 node_modules/
 .pnpm-store/
+dist/
 apps/studio/dist/
 artifacts/
+.private/
+*.tgz
 test-results/
 playwright-report/
 projects/
@@ -13,6 +16,7 @@ examples/*
 scripts/*
 !scripts/studio.ts
 !scripts/generate-demo.ts
+!scripts/build-dist.ts
 tests/browser/*
 !tests/browser/projects.spec.ts
 !tests/browser/studio.spec.ts
