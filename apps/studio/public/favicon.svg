@@ -1,1 +1,63 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="#b8f76a"/><path d="M9 11h8l3 18 3-18h8L22 32h-4z" fill="#182018"/><path d="M16 17h8v4h-8z" fill="#b8f76a"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2A2B2E"/>
+      <stop offset="55%" stop-color="#1A1B1E"/>
+      <stop offset="100%" stop-color="#101113"/>
+    </linearGradient>
+    <linearGradient id="leftBack" x1="170" y1="88" x2="275" y2="270" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#14B8A6"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="leftFront" x1="110" y1="110" x2="245" y2="395" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E2FF66"/>
+      <stop offset="55%" stop-color="#A3E635"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="rightBack" x1="395" y1="95" x2="285" y2="425" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3B0764"/>
+      <stop offset="50%" stop-color="#4C1D95"/>
+      <stop offset="100%" stop-color="#2E1065"/>
+    </linearGradient>
+    <linearGradient id="rightFront" x1="390" y1="82" x2="215" y2="430" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="42%" stop-color="#22D3EE"/>
+      <stop offset="78%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="bezierCurve" x1="96" y1="325" x2="415" y2="195" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#67E8F9"/>
+      <stop offset="50%" stop-color="#D9F99D"/>
+      <stop offset="100%" stop-color="#86EFAC"/>
+    </linearGradient>
+    <radialGradient id="glassSphere" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.78"/>
+      <stop offset="45%" stop-color="#CBD5E1" stop-opacity="0.38"/>
+      <stop offset="85%" stop-color="#64748B" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#F8FAFC" stop-opacity="0.65"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Charcoal Squircle Tile -->
+  <rect x="12" y="12" width="488" height="488" rx="112" fill="url(#bg)" stroke="#3F4147" stroke-width="6"/>
+
+  <!-- Left Ribbon Inner Cyan Fold -->
+  <path d="M174 88 C206 88 228 156 266 244 L212 260 C182 184 164 114 174 88 Z" fill="url(#leftBack)"/>
+
+  <!-- Right Ribbon Inner Deep Violet Fold -->
+  <path d="M408 82 C438 88 430 156 392 246 L292 430 C276 438 266 420 278 392 L374 152 C386 112 394 80 408 82 Z" fill="url(#rightBack)"/>
+
+  <!-- Left Ribbon Front Lime Fold -->
+  <path d="M174 88 L104 134 C88 146 92 178 108 218 L178 368 C196 398 224 388 238 358 L266 286 L190 128 C182 104 178 88 174 88 Z" fill="url(#leftFront)"/>
+
+  <!-- Right Ribbon Front Cyan-to-Violet Fold -->
+  <path d="M408 82 L338 112 C312 124 294 156 278 202 L208 372 C202 388 214 404 234 416 L278 436 C288 440 296 430 304 410 L392 146 C402 112 406 90 408 82 Z" fill="url(#rightFront)"/>
+
+  <!-- Glowing Bezier Curve -->
+  <path d="M132 258 C88 286 106 356 178 340 C252 324 316 204 414 196" stroke="url(#bezierCurve)" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <!-- Glassmorphic Bezier Control Nodes -->
+  <circle cx="116" cy="326" r="34" fill="url(#glassSphere)" stroke="#E2E8F0" stroke-opacity="0.6" stroke-width="3"/>
+  <circle cx="414" cy="196" r="36" fill="url(#glassSphere)" stroke="#E2E8F0" stroke-opacity="0.6" stroke-width="3"/>
+</svg>

@@ -827,7 +827,7 @@ function Studio() {
         </button>
         <div className="brand">
           <span className="brand-mark">
-            V<span>F</span>
+            <img src="/logo.png" alt="VectorForge" className="brand-mark-img" />
           </span>
           <span>
             VectorForge

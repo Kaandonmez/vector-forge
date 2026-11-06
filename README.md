@@ -1,12 +1,20 @@
-# VectorForge
+<p align="center">
+  <img src="docs/images/logo.png" alt="VectorForge Logo" width="112" height="112" />
+</p>
 
-[![npm version](https://img.shields.io/npm/v/vectorforge.svg?color=cb3837)](https://www.npmjs.com/package/vectorforge)
-[![License: MIT](https://img.shields.io/badge/License-MIT-a3e635.svg)](LICENSE)
-[![Node.js](https://img.shields.io/badge/Node.js-22%2B-339933.svg)](https://nodejs.org/)
-[![MCP Ready](https://img.shields.io/badge/MCP-Official%20SDK-38bdf8.svg)](docs/MCP.md)
-[![GitHub Stars](https://img.shields.io/github/stars/Kaandonmez/vector-forge?style=social)](https://github.com/Kaandonmez/vector-forge/stargazers)
+<h1 align="center">VectorForge</h1>
 
-**VectorForge — An AI-first 2D asset and motion pipeline for games, apps, and the web.**
+<p align="center">
+  <a href="https://www.npmjs.com/package/vectorforge"><img src="https://img.shields.io/npm/v/vectorforge.svg?color=cb3837" alt="npm version" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-a3e635.svg" alt="License: MIT" /></a>
+  <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-22%2B-339933.svg" alt="Node.js" /></a>
+  <a href="docs/MCP.md"><img src="https://img.shields.io/badge/MCP-Official%20SDK-38bdf8.svg" alt="MCP Ready" /></a>
+  <a href="https://github.com/Kaandonmez/vector-forge/stargazers"><img src="https://img.shields.io/github/stars/Kaandonmez/vector-forge?style=social" alt="GitHub Stars" /></a>
+</p>
+
+<p align="center">
+  <strong>VectorForge — An AI-first 2D asset and motion pipeline for games, apps, and the web.</strong>
+</p>
 
 Create coherent SVG asset families, articulate reusable actors, animate them, inspect the results and export portable files. Your existing coding agent generates the artwork. VectorForge supplies shared context, style rules, validation, deterministic motion, browser previews and visual feedback.
 
