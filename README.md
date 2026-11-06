@@ -1,5 +1,6 @@
 # VectorForge
 
+[![npm version](https://img.shields.io/npm/v/vectorforge.svg?color=cb3837)](https://www.npmjs.com/package/vectorforge)
 [![License: MIT](https://img.shields.io/badge/License-MIT-a3e635.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-22%2B-339933.svg)](https://nodejs.org/)
 [![MCP Ready](https://img.shields.io/badge/MCP-Official%20SDK-38bdf8.svg)](docs/MCP.md)
