@@ -4,7 +4,17 @@ The local MCP server implements official SDK stdio JSON-RPC (`@modelcontextproto
 
 ## Starting the MCP Server
 
-### From a built repository or local install
+### Via `npx` or global `npm` install (Recommended)
+
+```sh
+npx -y vectorforge mcp --project /path/to/my-project
+# or after npm install -g vectorforge:
+vectorforge mcp --project /path/to/my-project
+```
+
+Pass `--init` (`npx -y vectorforge mcp --project ./my-new-project --init --name "My Project"`) to automatically initialize an empty directory as a portable VectorForge project on first launch.
+
+### From a built repository checkout
 
 After running `pnpm build`, the compiled CLI/MCP entrypoint (`dist/cli.js`) runs directly on Node.js 22+ without requiring `tsx`:
 
@@ -17,18 +27,6 @@ Or during development inside the repository:
 ```sh
 pnpm vectorforge mcp --project ./examples/generic-demo
 ```
-
-### After npm publication (or from a local `npm pack` tarball install)
-
-Once installed from the `vectorforge` npm package or local `.tgz` tarball (`npm install -g ./vectorforge-0.1.0.tgz`):
-
-```sh
-vectorforge mcp --project /path/to/my-project
-# or via npx (after npm registry publication or local install):
-npx vectorforge mcp --project /path/to/my-project
-```
-
-Pass `--init` (`vectorforge mcp --project ./my-new-project --init --name "My Project"`) to automatically initialize an empty directory as a portable VectorForge project on first launch.
 
 ---
 

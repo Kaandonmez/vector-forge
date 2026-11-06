@@ -46,6 +46,26 @@ Organize deep nested folder collections for processors, sensors, display panels,
 
 ## Quick start
 
+Requires **Node.js 22+**.
+
+### Option 1 — Run directly via `npx` or global `npm` install (no clone required)
+
+```sh
+# Check environment and project readiness:
+npx vectorforge doctor
+
+# Initialize a new VectorForge project and open Studio at http://127.0.0.1:5173:
+npx vectorforge init ./my-project --name "My visual project"
+npx vectorforge studio --project ./my-project
+
+# Optional: install globally for instant CLI & MCP execution:
+npm install -g vectorforge
+# Optional: install Chromium if you want headless PNG snapshots:
+npx playwright install chromium
+```
+
+### Option 2 — Clone repository for local development
+
 Requires Node.js 22+ and pnpm 11.19+.
 
 ```sh
@@ -56,24 +76,6 @@ pnpm dev
 ```
 
 Open **http://127.0.0.1:5173**. The bundled `examples/generic-demo` project opens automatically. Chromium is needed for snapshots and browser tests; asset management, validation and export work without it.
-
-### Distributable CLI & Local Tarball Install
-
-`pnpm build` compiles the Studio UI (`apps/studio/dist/`) and standalone Node.js ESM entrypoints (`dist/cli.js`, `dist/mcp.js`, `dist/index.js`, `dist/vectorforge-runtime.js`) so the CLI and MCP server run without requiring `tsx` at runtime:
-
-```sh
-# Run the compiled CLI directly:
-node ./dist/cli.js --help
-node ./dist/cli.js doctor
-
-# Or create and install a portable npm tarball locally:
-npm pack
-npm install -g ./vectorforge-0.1.0.tgz
-vectorforge --help
-vectorforge doctor
-```
-
-_(Once the `vectorforge` package is published to the npm registry, `npx vectorforge --help` and `npx vectorforge mcp --project <path>` will work directly without a repository clone.)_
 
 ```sh
 pnpm vectorforge --help
@@ -149,18 +151,7 @@ pnpm vectorforge mcp --project ./examples/generic-demo
 
 Each MCP process locks to one project directory (`--project <path>` or `VECTORFORGE_PROJECT`). Pass `--init` (or call `vectorforge_init_project` over MCP) to initialize an empty project directory on first run.
 
-- **Repository Checkout Mode (Works Immediately Today Before npm Publication)**:
-  ```json
-  {
-    "mcpServers": {
-      "vectorforge": {
-        "command": "node",
-        "args": ["/path/to/vector_forge/dist/cli.js", "mcp", "--project", "/path/to/my-project"]
-      }
-    }
-  }
-  ```
-- **Claude Code (`.mcp.json`) / Cursor (`.cursor/mcp.json`) _(after npm publication or local `npm install -g ./vectorforge-0.1.0.tgz`)_**:
+- **Claude Code (`.mcp.json`) / Cursor (`.cursor/mcp.json`)**:
   ```json
   {
     "mcpServers": {
@@ -171,7 +162,7 @@ Each MCP process locks to one project directory (`--project <path>` or `VECTORFO
     }
   }
   ```
-- **VS Code / GitHub Copilot (`.vscode/mcp.json`) _(after npm publication or local tarball install)_**:
+- **VS Code / GitHub Copilot (`.vscode/mcp.json`)**:
   ```json
   {
     "servers": {
@@ -179,6 +170,17 @@ Each MCP process locks to one project directory (`--project <path>` or `VECTORFO
         "type": "stdio",
         "command": "npx",
         "args": ["-y", "vectorforge", "mcp", "--project", "${workspaceFolder}"]
+      }
+    }
+  }
+  ```
+- **Local Repository Checkout Mode**:
+  ```json
+  {
+    "mcpServers": {
+      "vectorforge": {
+        "command": "node",
+        "args": ["/path/to/vector_forge/dist/cli.js", "mcp", "--project", "/path/to/my-project"]
       }
     }
   }
